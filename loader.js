@@ -53,9 +53,17 @@ var librarys={
 		{name:"guide",important:0,url:["library/jtv.js","http://exec.remotecurl.appfxml.com/curl/jtv.js","http://85.17.30.89/common/jtv.js?v=6"]},
 		{name:"webOS",important:0,url:["library/webOS.js","http://browser.appfxml.com/library/webOS.js","http://komivp.github.appfxml.com/library/webOS.js"]},
 		{name:"jw",important:0,url:["library/jwplayer_8.20.1.js","http://browser.appfxml.com/library/jwplayer_8.20.1.js","http://komivp.github.appfxml.com/library/jwplayer_8.20.1.js"]},	
-		{name:"js",require:"jquery",important:0,url:["app_fix.js","http://browser.appfxml.com/jsobf/app_fix.js","http://komivp.github.appfxml.com/app_"+(this.getver()||this.versions().stable)+".js"]}		
+		{name:"js",require:"jquery",important:0,url:this.appUrls()}		
 		];
 		return this._libs;
+	},
+	appUrls:function(){
+		var v=String(this.getver()||"").toLowerCase();
+		var first="app_beta.js";
+		if(v==="stable"||v==="2306"||v.indexOf("2306")===0) first="app_2306_stable.js";
+		else if(v==="2611"||v.indexOf("2611")===0) first="app_2611.js";
+		else if(v==="beta"||!v) first="app_beta.js";
+		return [first,"app_beta.js","app_2611.js","app_2306_stable.js"];
 	},
 	exis:function(l){
 		var n=l.name||l;
