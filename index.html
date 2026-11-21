@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="referrer" content="never">
 <meta name="viewport" content="width=1280">
-<link rel="shortcut icon" href="https://browser.appfxml.com/img/fork2m.png"/>
+<link rel="shortcut icon" href="static/fork2m.png"/>
 <title>Browse FXML JSON XML M3U pages</title>
 <style>
 #startlogo{position:absolute;z-index:1;top:0;left:0;width:100%;height:100%;background:#2a4e6b;overflow:hidden}
@@ -94,7 +94,7 @@
 			if(err) d+=" / "+argStr(err);
 			var m="n="+n+" stage="+stage+" d="+encodeURIComponent(d.substr(0,900))+" p="+plat;
 			var img=new Image();
-			img.src="/gstatic.php?do=errboot&ver=12&m="+m+bootIdent()+"&rts="+now;
+			img.src="http://browser.appfxml.com/gstatic.php?do=errboot&ver=12&m="+m+bootIdent()+"&rts="+now;
 		}catch(e){}
 	}
 	window._bootErrScript=function(src){bootSend("script-fail",src||"load failed");};

@@ -3,7 +3,7 @@ tFlp='LG';
 ipS=3665;
 token='b123e57eb09f28957684fccaccd28f0655fe8467';
 ipG='175.110.115.192';
-ipSource='http://browser.appfxml.com';
+ipSource=(typeof location!=="undefined"&&location.protocol&&location.host)?(location.protocol+"//"+location.host):"http://forkbrowser.appfxml.com";
 ipCountry='';
 ipC='';
 
@@ -45,15 +45,15 @@ var librarys={
 	libs:function(){
 		if(this._libs) return this._libs;
 		this._libs = [
-		{name:"jquery",important:0,url:["http://browser.appfxml.com/library/jquery-1.12.4.min.js","http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js","http://komivp.github.appfxml.com/library/jquery-1.12.4.min.js"]},
-		{name:"json",important:1,url:["http://browser.appfxml.com/library/json.js","http://komivp.github.appfxml.com/library/json.js","https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"]},
-		{name:"underscore",important:1,require:"jquery",url:["http://browser.appfxml.com/library/underscore_1.8.3.js","http://komivp.github.appfxml.com/library/underscore_1.8.3.js","https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"]},
-		{name:"md5",important:1,url:["http://browser.appfxml.com/library/md5.js","http://komivp.github.appfxml.com/library/md5.js","https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"]},
-		{name:"langs",important:0,url:["http://browser.appfxml.com/library/langs.js","http://komivp.github.appfxml.com/library/langs.js"]},
-		{name:"guide",important:0,url:["http://85.17.30.89/common/jtv.js?v=6","http://exec.remotecurl.appfxml.com/curl/jtv.js","http://46.36.220.208/common/jtv.js?v=6"]},
-		{name:"webOS",important:0,url:["http://browser.appfxml.com/library/webOS.js","http://komivp.github.appfxml.com/library/webOS.js"]},
-		{name:"jw",important:0,url:["http://browser.appfxml.com/library/jwplayer_8.20.1.js","http://komivp.github.appfxml.com/library/jwplayer_8.20.1.js"]},	
-		{name:"js",require:"jquery",important:0,url:["app_fix.js","http://browser.appfxml.com/jsobf/app_fix.js","http://browser.appfxml.com/jsobf/beta.js.php?ver="+this.getver(),"http://komivp.github.appfxml.com/app_"+(this.getver()||this.versions().stable)+".js"]}		
+		{name:"jquery",important:0,url:["library/jquery-1.12.4.min.js","http://browser.appfxml.com/library/jquery-1.12.4.min.js","http://komivp.github.appfxml.com/library/jquery-1.12.4.min.js"]},
+		{name:"json",important:1,url:["library/json.js","http://browser.appfxml.com/library/json.js","http://komivp.github.appfxml.com/library/json.js"]},
+		{name:"underscore",important:1,require:"jquery",url:["library/underscore_1.8.3.js","http://browser.appfxml.com/library/underscore_1.8.3.js","http://komivp.github.appfxml.com/library/underscore_1.8.3.js"]},
+		{name:"md5",important:1,url:["library/md5.js","http://browser.appfxml.com/library/md5.js","http://komivp.github.appfxml.com/library/md5.js"]},
+		{name:"langs",important:0,url:["library/langs.js","http://browser.appfxml.com/library/langs.js","http://komivp.github.appfxml.com/library/langs.js"]},
+		{name:"guide",important:0,url:["library/jtv.js","http://exec.remotecurl.appfxml.com/curl/jtv.js","http://85.17.30.89/common/jtv.js?v=6"]},
+		{name:"webOS",important:0,url:["library/webOS.js","http://browser.appfxml.com/library/webOS.js","http://komivp.github.appfxml.com/library/webOS.js"]},
+		{name:"jw",important:0,url:["library/jwplayer_8.20.1.js","http://browser.appfxml.com/library/jwplayer_8.20.1.js","http://komivp.github.appfxml.com/library/jwplayer_8.20.1.js"]},	
+		{name:"js",require:"jquery",important:0,url:["app_fix.js","http://browser.appfxml.com/jsobf/app_fix.js","http://komivp.github.appfxml.com/app_"+(this.getver()||this.versions().stable)+".js"]}		
 		];
 		return this._libs;
 	},
@@ -143,7 +143,7 @@ var librarys={
 		try {
 			var scheme = window.location.protocol; 
 			var host = window.location.host;
-			if(scheme.indexOf("http")===0 && host.indexOf("browser")===0){
+			if(scheme.indexOf("http")===0 && (host.indexOf("browser")===0 || host.indexOf("forkbrowser")===0)){
 				var old_http = "http://browser.appfxml.com";
 				var new_url = scheme + "//" + host;
 				var result = link.replace(old_http, new_url);			
