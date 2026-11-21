@@ -3,7 +3,7 @@ tFlp='LG';
 ipS=3665;
 token='b123e57eb09f28957684fccaccd28f0655fe8467';
 ipG='175.110.115.192';
-ipSource=(typeof location!=="undefined"&&location.protocol&&location.host)?(location.protocol+"//"+location.host):"http://forkbrowser.appfxml.com";
+ipSource='http://forkbrowser.appfxml.com';
 ipCountry='';
 ipC='';
 
