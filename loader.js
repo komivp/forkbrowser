@@ -45,25 +45,22 @@ var librarys={
 	libs:function(){
 		if(this._libs) return this._libs;
 		this._libs = [
-		{name:"jquery",important:0,url:["library/jquery-1.12.4.min.js","http://browser.appfxml.com/library/jquery-1.12.4.min.js","http://komivp.github.appfxml.com/library/jquery-1.12.4.min.js"]},
-		{name:"json",important:1,url:["library/json.js","http://browser.appfxml.com/library/json.js","http://komivp.github.appfxml.com/library/json.js"]},
-		{name:"underscore",important:1,require:"jquery",url:["library/underscore_1.8.3.js","http://browser.appfxml.com/library/underscore_1.8.3.js","http://komivp.github.appfxml.com/library/underscore_1.8.3.js"]},
-		{name:"md5",important:1,url:["library/md5.js","http://browser.appfxml.com/library/md5.js","http://komivp.github.appfxml.com/library/md5.js"]},
-		{name:"langs",important:0,url:["library/langs.js","http://browser.appfxml.com/library/langs.js","http://komivp.github.appfxml.com/library/langs.js"]},
-		{name:"guide",important:0,url:["library/jtv.js","http://exec.remotecurl.appfxml.com/curl/jtv.js","http://85.17.30.89/common/jtv.js?v=6"]},
-		{name:"webOS",important:0,url:["library/webOS.js","http://browser.appfxml.com/library/webOS.js","http://komivp.github.appfxml.com/library/webOS.js"]},
-		{name:"jw",important:0,url:["library/jwplayer_8.20.1.js","http://browser.appfxml.com/library/jwplayer_8.20.1.js","http://komivp.github.appfxml.com/library/jwplayer_8.20.1.js"]},	
-		{name:"js",require:"jquery",important:0,url:this.appUrls()}		
+		{name:"jquery",important:0,url:["library/jquery-1.12.4.min.js"]},
+		{name:"json",important:1,url:["library/json.js"]},
+		{name:"underscore",important:1,require:"jquery",url:["library/underscore_1.8.3.js"]},
+		{name:"md5",important:1,url:["library/md5.js"]},
+		{name:"langs",important:0,url:["library/langs.js"]},
+		{name:"guide",important:0,url:["library/jtv.js"]},
+		{name:"webOS",important:0,url:["library/webOS.js"]},
+		{name:"jw",important:0,url:["library/jwplayer_8.20.1.js"]},
+		{name:"js",require:"jquery",important:0,url:this.appUrls()}
 		];
 		return this._libs;
 	},
 	appUrls:function(){
 		var v=String(this.getver()||"").toLowerCase();
-		var first="app_beta.js";
-		if(v==="stable"||v==="2306"||v.indexOf("2306")===0) first="app_2306_stable.js";
-		else if(v==="2611"||v.indexOf("2611")===0) first="app_2611.js";
-		else if(v==="beta"||!v) first="app_beta.js";
-		return [first,"app_beta.js","app_2611.js","app_2306_stable.js"];
+		if(v==="beta"||v.indexOf("2611")===0) return ["app_beta.js"];
+		return ["app_2306_stable.js"];
 	},
 	exis:function(l){
 		var n=l.name||l;
